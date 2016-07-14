@@ -6,3 +6,5 @@ You can run like this:
 $ export FLASK_APP=runserver.py
 $ python -m flask run
 ```
+
+And test like this
