@@ -8,6 +8,7 @@ $ python -m flask run
 ```
 
 And test like this:
+
 ```bash
 $ python tests/views_test.py
 ```
