@@ -7,7 +7,7 @@ class ViewsTestCase(unittest.TestCase):
 
     def test_hello_word(self):
         rv = self.app.get('/')
-        assert 'Hello World!' in rv.data
+        assert 'Hello World!' in rv.data.decode('utf-8')
 
 if __name__ == '__main__':
     unittest.main()
