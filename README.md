@@ -1,4 +1,4 @@
-# Airplane Mode
+# Airplane Mode [![Build Status](https://travis-ci.org/gmendonca/airplanemode.svg?branch=master)](https://travis-ci.org/gmendonca/airplanemode)
 
 You can run like this:
 
