@@ -2,6 +2,7 @@
 
 
 Right now you need [ChromeDriver](https://sites.google.com/a/chromium.org/chromedriver/) installed.
+
 You can run like this:
 
 ```bash

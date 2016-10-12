@@ -3,6 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
 import sys
+import json
 
 class LowestFare:
     def __init__(self, where, to, depart, back):
@@ -38,6 +39,12 @@ class LowestFare:
 
             print 'name: %s' % name
             print 'lowest_price: %s available on %s' % (min(lowest_prices.values()), url)
+
+            return json.dumps({
+                'name': name,
+                'lowest_price': min(lowest_prices.values()),
+                'url': url
+            })
         finally:
             driver.quit()
 
