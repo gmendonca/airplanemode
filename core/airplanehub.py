@@ -5,6 +5,11 @@ from selenium.webdriver.common.by import By
 import sys
 import json
 
+
+def get_number(element):
+    return int(element.text.replace('.', ''))
+
+
 class LowestFare:
     def __init__(self, where, to, depart, back):
         self.where = where
@@ -12,11 +17,8 @@ class LowestFare:
         self.depart = depart
         self.back = back
 
-    def get_number(self, element):
-        return int(element.text.replace('.', ''))
-
     def find(self):
-        url = 'http://www.decolar.com/shop/flights/results/roundtrip/%s/%s/%s/%s/1/0/0?from=SB' % (self.where, self.to, self.depart, self.back)
+        url = "http://www.decolar.com/shop/flights/results/roundtrip/%s/%s/%s/%s/1/0/0?from=SB" % (self.where, self.to, self.depart, self.back)
         driver = webdriver.Chrome()
 
         lowest_prices = {}
@@ -33,7 +35,7 @@ class LowestFare:
             for airline_elem in airlines:
                 prices = airline_elem.find_elements_by_css_selector('.amount')
                 airline = airline_elem.find_element_by_css_selector('.airline-name').text
-            lowest_prices[airline] = min([self.get_number(price) for price in prices])
+            lowest_prices[airline] = min([get_number(price) for price in prices])
 
             print driver.title
 
@@ -47,7 +49,6 @@ class LowestFare:
             })
         finally:
             driver.quit()
-
 
 if __name__ == '__main__':
     import getopt
